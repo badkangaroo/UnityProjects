@@ -2,6 +2,7 @@ Library/
 Temp/
 *.sln
 *.csproj
+*.pidb
 #################
 ## Eclipse
 #################
