@@ -1,3 +1,7 @@
+Library/
+Temp/
+*.sln
+*.csproj
 #################
 ## Eclipse
 #################
