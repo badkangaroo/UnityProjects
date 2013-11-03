@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
-using AGameCo;
-namespace AGameCo {
+using System;
+
+namespace AGameCo.ZGame.Score
+{
 	public struct GameStats
 	{
 		public int timesPlayed;
@@ -10,3 +10,4 @@ namespace AGameCo {
 		public float hoursPlayed;
 	}
 }
+
