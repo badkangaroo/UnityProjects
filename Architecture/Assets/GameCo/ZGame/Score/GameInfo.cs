@@ -7,7 +7,8 @@ namespace AGameCo.ZGame.Score
 	{
 		public GameStats GetGameStats()
 		{
-			
+			GameStats gameStats = new GameStats();
+			return gameStats;
 		}
 	}
 }
