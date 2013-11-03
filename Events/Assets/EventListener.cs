@@ -28,4 +28,9 @@ public class EventListener : MonoBehaviour {
 		Debug.Log( distanceToTarget );
 	}
 	
+	void OnDestroy() {
+		EventDispatcher dispatcher = GameObject.Find ("Main Camera").GetComponent<EventDispatcher>();
+		dispatcher.ProperEvent -= ProximityEvent;		
+	}
+	
 }

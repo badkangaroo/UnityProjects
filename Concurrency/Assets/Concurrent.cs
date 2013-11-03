@@ -14,10 +14,7 @@ public class Concurrent : MonoBehaviour
 	public float RepeatTime = 2.0f;
 	public int next = -1;
 	
-	void Start()
-	{
-		StartCoroutine( "DayInTheLife", 2 );
-	}
+
 	
 	IEnumerator Gulp( int gulps )
 	{
@@ -199,9 +196,30 @@ public class Concurrent : MonoBehaviour
 			yield return null;
 		}
 	}
-
+	
+	IEnumerator MultiStep()
+	{
+		Debug.Log( "First" );
+		yield return null;
+		Debug.Log( "Second" );
+		yield return null;
+		Debug.Log( "Third" );
+		yield return null;
+		Debug.Log( "Fourth" );
+		yield return null;
+	}
+	
+	void Start()
+	{
+		StartCoroutine( "DayInTheLife", 2 );
+	}
+	
 	void Update ()
 	{
+		if( Input.GetMouseButtonDown(0) )
+		{
+			MultiStep();
+		}
 		
 		if( StopTheRoutine ) {
 			StopCoroutine("DayInTheLife");
