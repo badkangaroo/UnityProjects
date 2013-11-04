@@ -11,6 +11,7 @@ namespace AGameCo.ZGame.Damage
 			DamageInfo damageInfo = new DamageInfo();
 			damageInfo.damageType = dType;
 			damageInfo.damageAmount = amount;
+			DamageInfo DamageInfos = new DamageInfo();
 			return damageInfo;
 		}
 	}
