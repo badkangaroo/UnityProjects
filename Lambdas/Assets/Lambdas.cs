@@ -6,9 +6,16 @@ public class Lambdas : MonoBehaviour {
 	// Use this for initialization
 	delegate int MyDelegate(int i);
 	void Start () {
-		MyDelegate myDelegatedTask = (x) => x * x; 
-		int y = myDelegatedTask(5);
+		MyDelegate myLambda = (x) => x * x; 
+		int y = myLambda(5);
 		Debug.Log( y );
+		
+		MyDelegate myDelegate = delegate(int i)
+		{
+			return i * i;
+		};
+		int z = myDelegate (5);
+		Debug.Log( z );
 	}
 
 
@@ -19,7 +26,7 @@ public class Lambdas : MonoBehaviour {
 	public int a = 0;
 	void Update () {
 		if( StartCounting ) {
-			MyDelegate dt = (x) => ( ++x < y );
+			MyDelegate dt = (x) => ( ++x * y );
 			counter = dt(y);
 		}
 	}

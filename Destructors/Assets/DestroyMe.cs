@@ -11,6 +11,11 @@ public class DestroyMe {
 		Debug.Log( name + " says hello.");
 	}
 	
+	public void OnUpdate()
+	{
+		Debug.Log( name + " is updating.");
+	}
+	
 	~DestroyMe()
 	{
 		Debug.Log( name + " says goodbye.");

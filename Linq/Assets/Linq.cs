@@ -19,12 +19,17 @@ public class Linq : MonoBehaviour {
 		var anotherThingThere = (object)9;
 		var aDifferentThing = (float)9;
 
-		var everyThird = from n in numbers where (n % 3) == 0 select n;
-		foreach( int i in everyThird ) {
+		var divisibleByThree = (from n in numbers where (n % 3) == 0 select n).ToList();
+		
+		numbers[0] = 1;
+		numbers[3] = 1;
+		numbers[6] = 1;
+		numbers[9] = 1;
+		
+		foreach( int i in divisibleByThree ) {
 			Debug.Log( i );
 		}
-		
-		Zombie[] zombies = new Zombie[100];
+		/*Zombie[] zombies = new Zombie[100];
 		for ( int i = 0; i < 100; i++ ) {
 			zombies[i] = new Zombie();	
 		}
@@ -32,7 +37,7 @@ public class Linq : MonoBehaviour {
 		var weakZombies = from z in zombies where z.hitPoints < 50 select z;
 		foreach( Zombie z in weakZombies ) {
 			Debug.Log( z.hitPoints );
-		}
+		}*/
 
 	}
 	
