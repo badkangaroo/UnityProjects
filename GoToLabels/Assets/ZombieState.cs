@@ -1,9 +1,11 @@
 using UnityEngine;
 using System.Collections;
 
-public class ZombieState : MonoBehaviour {
+public class ZombieState : MonoBehaviour
+{
 	
-	enum ZState{
+	enum ZState
+	{
 		idleing,
 		wandering,
 	}
@@ -14,32 +16,35 @@ public class ZombieState : MonoBehaviour {
 	public float furthestDistance;
 	public GameObject closestGameObject;
 	public GameObject furthestGameObject;
-	
+
 	// Use this for initialization
-	void Start () {
+	void Start()
+	{
 		stateTimer = 0.1f;
 		MyState = ZState.idleing;
 		closestDistance = Mathf.Infinity;
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		switch( MyState ) {
-		case ZState.idleing:
-			goto Ideling;
-		case ZState.wandering:
-			goto Wandering;
-		default:
-			break;
+	void Update()
+	{
+		switch (MyState)
+		{
+			case ZState.idleing:
+				goto Ideling;
+			case ZState.wandering:
+				goto Wandering;
+			default:
+				break;
 		}
 		
-	Ideling:
-			stateTimer -= Time.deltaTime;
+		Ideling:
+		stateTimer -= Time.deltaTime;
 
-		if( stateTimer < 0.0f )
+		if (stateTimer < 0.0f)
 		{
 			MyState = ZState.wandering;
-			stateTimer = Random.Range( 20, 50 ) * 0.1f;
+			stateTimer = Random.Range(20, 50) * 0.1f;
 
 			closestDistance = Mathf.Infinity;
 			furthestDistance = 0f;
@@ -47,26 +52,26 @@ public class ZombieState : MonoBehaviour {
 		}
 		return;
 	
-	Wandering:
+		Wandering:
 		stateTimer -= Time.deltaTime;
 		MoveAround();
 
-		if( stateTimer < 0.0f )
+		if (stateTimer < 0.0f)
 		{
 			MyState = ZState.idleing;
-			stateTimer = Random.Range( 5, 10 ) * 0.1f;
+			stateTimer = Random.Range(5, 10) * 0.1f;
 		}
 		return;
 	}
 	
 	virtual public void LookAround()
 	{
-		GameObject[] Zombies = (GameObject[]) GameObject.FindObjectsOfType( typeof(GameObject) );
+		GameObject[] Zombies = (GameObject[])GameObject.FindObjectsOfType(typeof(GameObject));
 
-		foreach ( GameObject go in Zombies )
+		foreach (GameObject go in Zombies)
 		{
 			ZombieState z = go.GetComponent<ZombieState>();
-			if( z == null || z == this )
+			if (z == null || z == this)
 			{
 				continue;
 			}
@@ -74,13 +79,13 @@ public class ZombieState : MonoBehaviour {
 			Vector3 v = go.transform.position - transform.position;
 			float distanceToGo = v.magnitude;
 			
-			if ( distanceToGo < closestDistance )
+			if (distanceToGo < closestDistance)
 			{
 				closestDistance = distanceToGo;
 				closestGameObject = go;
 			}
 			
-			if ( distanceToGo > furthestDistance )
+			if (distanceToGo > furthestDistance)
 			{
 				furthestDistance = distanceToGo;
 				furthestGameObject = go;
@@ -88,14 +93,15 @@ public class ZombieState : MonoBehaviour {
 		}
 	}
 	
-	void MoveAround() {
+	void MoveAround()
+	{
 		Vector3 MoveAway = (transform.position - closestGameObject.transform.position).normalized;
 		Vector3 MoveTo = (transform.position - furthestGameObject.transform.position).normalized;
 		Vector3 directionToMove = MoveAway - MoveTo;
 		transform.forward = directionToMove;
-		gameObject.rigidbody.velocity = directionToMove * Random.Range( 10, 20) * 0.235f;
-		Debug.DrawRay( transform.position, directionToMove, Color.blue );
-		Debug.DrawLine( transform.position, closestGameObject.transform.position, Color.red );
-		Debug.DrawLine( transform.position, furthestGameObject.transform.position, Color.green );
+		gameObject.rigidbody.velocity = directionToMove * Random.Range(10, 20) * 0.235f;
+		Debug.DrawRay(transform.position, directionToMove, Color.blue);
+		Debug.DrawLine(transform.position, closestGameObject.transform.position, Color.red);
+		Debug.DrawLine(transform.position, furthestGameObject.transform.position, Color.green);
 	}
 }

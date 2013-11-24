@@ -1,31 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract partial class BaseClass : IEnumerator, ICollection {
+public abstract partial class BaseClass : IEnumerator, ICollection
+{
 	#region BaseProperties
 	private float speed;
 	protected float Speed
 	{
-		get {return speed;}
-		set {speed = value;}
+		get { return speed;}
+		set { speed = value;}
 	}
 	private float turn;
 	protected float Turn
 	{
-		get {return turn;}
-		set {turn = value;}
+		get { return turn;}
+		set { turn = value;}
 	}
 	private Vector3 transform;
 	protected Vector3 ChildTransform
 	{
-		get {return transform;}
-		set {transform = value;}
+		get { return transform;}
+		set { transform = value;}
 	}
 	private Vector3 rotation;
 	protected Vector3 ChildRotation
 	{
-		get {return rotation;}
-		set {rotation = value;}
+		get { return rotation;}
+		set { rotation = value;}
 	}
 	private MeshFilter mMeshFilter;
 	protected MeshFilter MyMeshFilter
@@ -58,7 +59,7 @@ public abstract partial class BaseClass : IEnumerator, ICollection {
 	public abstract void ChildUpdate();
 	public virtual void Speak()
 	{
-		Debug.Log( "base hello" );
+		Debug.Log("base hello");
 	}
 	#endregion
 }

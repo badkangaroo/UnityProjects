@@ -1,26 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract partial class BaseClass : IEnumerator, ICollection {
+public abstract partial class BaseClass : IEnumerator, ICollection
+{
 
-	public IEnumerator GetEnumerator ()
+	public IEnumerator GetEnumerator()
 	{
-		throw new System.NotImplementedException ();
+		throw new System.NotImplementedException();
 	}
 
-	public bool MoveNext ()
+	public bool MoveNext()
 	{
-		throw new System.NotImplementedException ();
+		throw new System.NotImplementedException();
 	}
 
-	public void Reset ()
+	public void Reset()
 	{
-		throw new System.NotImplementedException ();
+		throw new System.NotImplementedException();
 	}
 
-	public object Current {
-		get {
-			throw new System.NotImplementedException ();
+	public object Current
+	{
+		get
+		{
+			throw new System.NotImplementedException();
 		}
 	}
 }

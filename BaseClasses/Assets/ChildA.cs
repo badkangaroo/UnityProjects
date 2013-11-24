@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public partial class ChildA : BaseClass {
+public partial class ChildA : BaseClass
+{
 	#region ChildA_properties
 	protected GameObject me;
 	#endregion
@@ -16,22 +17,22 @@ public partial class ChildA : BaseClass {
 		MyMeshRenderer.material = this.MyMaterial;
 	}
 	
-	public override void MoveForward(float speed, float turn )
+	public override void MoveForward(float speed, float turn)
 	{
 		Speed = speed;
 		Turn += turn;
-		ChildRotation = new Vector3( 0, Turn, 0 );
+		ChildRotation = new Vector3(0, Turn, 0);
 	}
 
 	public override void ChildUpdate()
 	{
 		ChildTransform = me.transform.forward * Speed;
-		me.transform.localPosition +=  ChildTransform;
+		me.transform.localPosition += ChildTransform;
 		me.transform.localEulerAngles = ChildRotation;
 	}
 	
 	public override void Speak()
 	{
-		Debug.Log( me.name + " word" );
+		Debug.Log(me.name + " word");
 	}
 }

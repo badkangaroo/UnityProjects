@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Accessors : MonoBehaviour {
-	
-	class doodad {
+public class Accessors : MonoBehaviour
+{
+	class fluffHead
+	{
 		//internally stored int
 		private int mNumber;
 		
@@ -16,7 +17,7 @@ public class Accessors : MonoBehaviour {
 			}
 			set
 			{ 
-				if ( value > 0 )
+				if (value > 0)
 					mNumber = value;
 				else
 					mNumber = 0;
@@ -24,7 +25,7 @@ public class Accessors : MonoBehaviour {
 		}
 		
 		//constructor
-		public doodad()
+		public fluffHead()
 		{
 			MyNumber = 0;
 		}
@@ -38,81 +39,101 @@ public class Accessors : MonoBehaviour {
 		private int myInt;
 		public int MyInt
 		{
-			get{return myInt;}
+			get
+			{
+				return myInt;
+			}
 			set
 			{
 				myInt = value;
 				
-				if( MyIntEvent != null )
+				if (MyIntEvent != null)
 				{
 					MyIntEvent(myInt);
 				}
 			}
 		}
-		
+
+		public int GetInt()
+		{
+			return MyInt;
+		}
+
 		public int doubleInt
 		{
 			get { return myInt * 2; }
 		}
 	}
-	class ff {
-		public int i = 0;
+	struct AccessorStruct
+	{
+		private int myInt;
+		public int MyInt
+		{
+			get{ return this.myInt;}
+			set{ this.myInt = value;}
+		}
+		public int GetInt()
+		{
+			return MyInt;
+		}
+		public void SetInt(int i)
+		{
+			MyInt = i;
+		}
 	}
-	void Start ()
+
+	void Start()
 	{
 		GetSet gs = new GetSet();
 		gs.MyIntEvent += IntChanged;
 		gs.MyInt = 10;
-		Debug.Log( gs.doubleInt );
-ff f = new ff();
-		f.i = 1;
-switch( (int)f )
-{
-	case ff:
-		//do things
-		break;
-}
+		Debug.Log(gs.doubleInt);
+		AccessorStruct MyAccessorStruct = new AccessorStruct();
+		MyAccessorStruct.MyInt = 3;
+		MyAccessorStruct.SetInt(3);
+		Debug.Log(MyAccessorStruct.MyInt);
 	}
 
 	void IntChanged(int i)
 	{
-		Debug.Log( "change! " + i );
+		Debug.Log("change! " + i);
 	}
-	bool DidSwap(ref int a,ref int b)
+
+	bool DidSwap(ref int a, ref int b)
 	{
-		if( a > b )
+		if (a > b)
 		{
 			int temp = a;
 			a = b;
 			b = temp;
 			return false;
-		}
-		else 
+		} else
 		{
 			return true;
 		}
 	}
 
-	IEnumerator sort( int[] ar )
+	IEnumerator sort(int[] ar)
 	{
 		bool done = true;
 		
-		for( int i = 0; i < ar.Length-1; i++ )
+		for (int i = 0; i < ar.Length-1; i++)
 		{
-			done = DidSwap( ref ar[i], ref ar[i+1] );
+			done = DidSwap(ref ar [i], ref ar [i + 1]);
 		}
 
-		if( !done ) {
-			Debug.Log( "iterating" );
-			sort ( ar );
+		if (!done)
+		{
+			Debug.Log("iterating");
+			sort(ar);
 		}
 		yield return null;
 	}
 	
 	public int[] array = new int[]{ 1,3,4,6,1,2,3,5,6,1,23,4,6,67,100 };
-	
 
-	void Update () {
+	void Update()
+	{
 		
 	}
 }

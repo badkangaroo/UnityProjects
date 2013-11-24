@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class InheritFromSealed : MonoBehaviour /*FinalizedObject*/
+public class Monster : MonoBehaviour
 {
+
 	// Use this for initialization
 	void Start()
 	{
-	
+		tag = "Monster";
 	}
 	
 	// Update is called once per frame

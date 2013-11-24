@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using FunSpace;
 
-public class InheritFromSealed : MonoBehaviour /*FinalizedObject*/
+public class UsingFunspace : MonoBehaviour
 {
 	// Use this for initialization
 	void Start()

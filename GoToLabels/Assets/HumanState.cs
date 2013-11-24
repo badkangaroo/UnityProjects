@@ -1,16 +1,17 @@
 using UnityEngine;
 using System.Collections;
 
-public class HumanState : ZombieState {
-	
+public class HumanState : ZombieState
+{
+
 	override public void LookAround()
 	{
-		GameObject[] Zombies = (GameObject[]) GameObject.FindObjectsOfType( typeof(GameObject) );
+		GameObject[] Zombies = (GameObject[])GameObject.FindObjectsOfType(typeof(GameObject));
 
-		foreach ( GameObject go in Zombies )
+		foreach (GameObject go in Zombies)
 		{
 			ZombieState z = go.GetComponent<ZombieState>();
-			if( z == null || z == this )
+			if (z == null || z == this)
 			{
 				continue;
 			}
@@ -18,17 +19,19 @@ public class HumanState : ZombieState {
 			Vector3 v = go.transform.position - transform.position;
 			float distanceToGo = v.magnitude;
 			
-			if ( distanceToGo < closestDistance )
+			if (distanceToGo < closestDistance)
 			{
-				if( z is ZombieState ) {
+				if (z is ZombieState)
+				{
 					closestDistance = distanceToGo;
 					closestGameObject = go;
 				}
 			}
 			
-			if ( distanceToGo > furthestDistance && distanceToGo < 10 )
+			if (distanceToGo > furthestDistance && distanceToGo < 10)
 			{
-				if( z is HumanState ) {
+				if (z is HumanState)
+				{
 					furthestDistance = distanceToGo;
 					furthestGameObject = go;
 				}
