@@ -1,6 +1,6 @@
-﻿namespace MyNameSpace
+﻿using UnityEngine;
+namespace MyNameSpace
 {
-	using UnityEngine;
 	public class MyClass
 	{
 		public void MyFunction()
