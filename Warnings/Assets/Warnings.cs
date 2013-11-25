@@ -3,11 +3,13 @@ using System.Collections;
 using System;
 using System.IO;
 
-public class Warnings : MonoBehaviour {
+public class Warnings : MonoBehaviour
+{
 	
-	void Start() {
+	void Start()
+	{
 		FileStream file = null;
-    	FileInfo fileInfo = null;
+		FileInfo fileInfo = null;
 
 		try
 		{
@@ -15,18 +17,14 @@ public class Warnings : MonoBehaviour {
 			
 			file = fileInfo.OpenWrite();
 			
-			for( int i = 0; i < 255; i++ )
+			for (int i = 0; i < 255; i++)
 			{
-				file.WriteByte( (byte)i );
+				file.WriteByte((byte)i);
 			}
-		}
-		
-		catch( UnauthorizedAccessException e)
+		} catch (UnauthorizedAccessException e)
 		{
 			Debug.LogWarning(e.Message);
-		}
-		
-		finally
+		} finally
 		{
 			if (file != null)
 			{
@@ -55,11 +53,11 @@ public class Warnings : MonoBehaviour {
 		}
 	}
 	
-	int CheckInput( string s )
+	int CheckInput(string s)
 	{
 		int parsed = 0;
 		
-		if( string.IsNullOrEmpty( s ) )
+		if (string.IsNullOrEmpty(s))
 		{
 			MyException e = new MyException("null");
 			
@@ -67,15 +65,16 @@ public class Warnings : MonoBehaviour {
 			throw e;
 		}
 
-		parsed = int.Parse( s );
+		parsed = int.Parse(s);
 		
-		if( parsed > 100 ) 
+		if (parsed > 100)
 		{
 			MyException e = new MyException("too high");
 			e.Number = parsed;
 			throw e;
 		}
-		if( parsed < 0 ) {
+		if (parsed < 0)
+		{
 			throw new UnassignedReferenceException();
 		}
 		return parsed;
@@ -88,25 +87,22 @@ public class Warnings : MonoBehaviour {
 		//give parsing a string a shot
 		try
 		{
-			i = CheckInput( input );
-		}
-		
-		catch ( MyException e )
+			i = CheckInput(input);
+		} catch (MyException e)
 		{
 			i = e.Number;
-			if( e.Message == "too high" )
+			if (e.Message == "too high")
 			{
-				Debug.Log( "use a lower number" );
-			} else if ( e.Message == "null" ) {
-				Debug.Log( "input a number" );
+				Debug.Log("use a lower number");
+			} else if (e.Message == "null")
+			{
+				Debug.Log("input a number");
 			}
-		}
-		
-		finally
+		} finally
 		{
-			Debug.Log( "done!" );
+			Debug.Log("done!");
 		}
 		
-		Debug.Log("i = "+ i);
+		Debug.Log("i = " + i);
 	}
 }
