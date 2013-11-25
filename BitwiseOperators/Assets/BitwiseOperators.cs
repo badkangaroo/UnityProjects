@@ -1,19 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BitwiseOperators : MonoBehaviour {
+public class BitwiseOperators : MonoBehaviour
+{
 
-	public enum characterClass{
-		farmer = 0<<0,
-		fighter= 1<<0,
-		theif  = 1<<1,
-		wizard = 1<<2,
-		archer = 1<<3,
-		monk   = 1<<4
+	public enum characterClass
+	{
+		farmer = 0 << 0,
+		fighter= 1 << 0,
+		theif  = 1 << 1,
+		wizard = 1 << 2,
+		archer = 1 << 3,
+		monk   = 1 << 4
 	}
 
 	// Use this for initialization
-	void Start () {
+	void Start()
+	{
 		/*characterClass classA = characterClass.fighter;
 		characterClass classB = characterClass.wizard;
 		characterClass classC = characterClass.theif;
@@ -74,17 +77,20 @@ public class BitwiseOperators : MonoBehaviour {
 			r = r ^ s;
 			Debug.Log("  r" + bs( r ) );
 		}*/
-		Debug.Log( (-123 & (1<<31)) != 0 );
+		Debug.Log((-123 & (1 << 31)) != 0);
+		int? x = null;
+
 	}
+
 
 	int BitwiseDiv(int a, int b)
 	{
 		int divideStart = a;
 		int timesDivided = 1;
-		while( true )
+		while (true)
 		{
 			divideStart = BitwiseSub(divideStart, b);
-			if( divideStart <= 0 )
+			if (divideStart <= 0)
 				break;
 			timesDivided = BitwiseAdd(timesDivided, 1);
 		}
@@ -97,7 +103,7 @@ public class BitwiseOperators : MonoBehaviour {
 		int r = 0;
 		while (b != 0)
 		{
-			if ( (b & 1) != 0)
+			if ((b & 1) != 0)
 			{
 				r = BitwiseAdd(r, a);
 			}
@@ -116,39 +122,38 @@ public class BitwiseOperators : MonoBehaviour {
 		return r;
 	}
 
-	string bitsToString( int number, int digits)
-    {
+	string bitsToString(int number, int digits)
+	{
 		char[] binary = new char[digits];
-		int digit = digits-1;
+		int digit = digits - 1;
 		int place = 0;
-		while ( place < digits)
+		while (place < digits)
 		{
-			int d = number & ( 1 << place ); 
-		    if ( d != 0 )
-		    {
-				binary[digit] = '1';
-		    }
-		    else
-		    {
-				binary[digit] = '0';
-		    }
+			int d = number & (1 << place); 
+			if (d != 0)
+			{
+				binary [digit] = '1';
+			} else
+			{
+				binary [digit] = '0';
+			}
 			digit--;
 			place++;
 		}
 		return new string(binary);
-    }
+	}
 
 	int BitwiseSub(int a, int b)
 	{
-		b =  BitwiseAdd(~b, 1);
-		return BitwiseAdd( a, b);
+		b = BitwiseAdd(~b, 1);
+		return BitwiseAdd(a, b);
 	}
 
 	int BitwiseAdd(int a, int b)
 	{
 		int c = a & b;
 		int r = a ^ b;
-		while(c != 0)
+		while (c != 0)
 		{
 			int s = c << 1;	//shift digits to add
 			c = r & s;		//find overlapping digits
@@ -167,13 +172,15 @@ public class BitwiseOperators : MonoBehaviour {
 		return a ^ b;
 	}
 
-	public bool containsClass( characterClass a, characterClass b )
+	public bool containsClass(characterClass a, characterClass b)
 	{
 		return (a & b) == b;
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void Update()
+	{
 
 	}
+
 }

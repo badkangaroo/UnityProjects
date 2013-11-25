@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Problem : MonoBehaviour {
-
+public class Problem : MonoBehaviour
+{
 	// Use this for initialization
-	void Start () {
+	void Start()
+	{
 		Game.MyText = "nope.";
 	}
 }

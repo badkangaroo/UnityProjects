@@ -1,24 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DestroyMe {
+public class DestroyMe
+{
 	public string name;
-
+	
 	//constructor
 	public DestroyMe(string name)
 	{
 		this.name = name;
-		Debug.Log( name + " says hello.");
+		Debug.Log(name + " says hello.");
 	}
 	
 	public void OnUpdate()
 	{
-		Debug.Log( name + " is updating.");
+		Debug.Log(name + " is updating.");
 	}
 	
 	~DestroyMe()
 	{
-		Debug.Log( name + " says goodbye.");
-	}
-	
+		Debug.Log(name + " says goodbye.");
+	}	
 }

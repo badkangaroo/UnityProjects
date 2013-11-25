@@ -78,5 +78,4 @@ public class Enums : MonoBehaviour
 			Debug.Log(obj.ToString());
 		}
 	}
-
 }

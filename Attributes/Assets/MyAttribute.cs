@@ -3,16 +3,19 @@ using UnityEngine;
 using System.Collections;
 
 [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = true)]
-public class MyAttribute : Attribute {
+public class MyAttribute : Attribute
+{
 	public string name;
-	public string Name{
-		get{return this.name;}
+	public string Name
+	{
+		get{ return this.name;}
 	}
 	
 	public int number;
-	public int Number{
-		get{return this.number;}
-		set{this.number = value;}
+	public int Number
+	{
+		get{ return this.number;}
+		set{ this.number = value;}
 	}
 
 	public MyAttribute(string name)
@@ -29,9 +32,10 @@ public enum MyTypes
 }
 
 [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = true)]
-public class PlayerType : Attribute {
+public class PlayerType : Attribute
+{
 	public MyTypes myType;
-	public PlayerType( MyTypes mType )
+	public PlayerType(MyTypes mType)
 	{
 		this.myType = mType;
 	}

@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BaseClass {
+public class BaseClass
+{
 	public string name;
 	
 	public BaseClass(string n)
@@ -10,7 +11,8 @@ public class BaseClass {
 	}
 	
 	[MyAttribute("Update")]
-	public void OnUpdate() {
-		Debug.Log( name + " is updating...");
+	public void OnUpdate()
+	{
+		Debug.Log(name + " is updating...");
 	}
 }
