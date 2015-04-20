@@ -39,7 +39,7 @@ public class Example : MonoBehaviour
 			GameObject box =
 				GameObject.CreatePrimitive(PrimitiveType.Cube);
 			//box.AddComponent("Monster");
-			Monster m = box.AddComponent("Monster") as Monster;
+			Monster m = box.AddComponent<Monster>() as Monster;
 			//Monster m = box.GetComponent("Monster") as Monster;
 			m.ID = i;
 			boxes [i] = box;
