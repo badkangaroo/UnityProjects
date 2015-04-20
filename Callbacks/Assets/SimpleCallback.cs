@@ -25,7 +25,7 @@ public class SimpleCallback : MonoBehaviour {
 	public void readTexture( WWW www )
 	{
 		Texture2D texture = www.texture;
-		gameObject.renderer.material.SetTexture( "_MainTex", texture );
+		gameObject.GetComponent<Renderer>().material.SetTexture( "_MainTex", texture );
 	}
 	
 	public void readText( WWW www )

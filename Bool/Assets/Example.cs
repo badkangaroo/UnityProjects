@@ -40,7 +40,7 @@ public class Example : MonoBehaviour
 				} else if (Ax <= Bx) {
 						col = Color.blue;
 				}
-				renderer.material.color = col;
+				GetComponent<Renderer>().material.color = col;
 
 		}
 }
