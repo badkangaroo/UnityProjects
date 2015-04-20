@@ -44,7 +44,7 @@ public class SceneManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		UpdateAttractor();
+		//UpdateAttractor();
 		foreach( GameObject me in Spheres)
 		{
 			foreach( GameObject other in Spheres )
