@@ -18,15 +18,15 @@ public class MonsterSpawner : MonoBehaviour
 		obj = GameObject.CreatePrimitive(primitiveType);
 		if (myColor == colorType.red)
 		{
-			obj.renderer.material.color = Color.red;
+			obj.GetComponent<Renderer>().material.color = Color.red;
 		}
 		if (myColor == colorType.blue)
 		{
-			obj.renderer.material.color = Color.blue;
+			obj.GetComponent<Renderer>().material.color = Color.blue;
 		}
 		if (myColor == colorType.green)
 		{
-			obj.renderer.material.color = Color.green;
+			obj.GetComponent<Renderer>().material.color = Color.green;
 		}
 	}
 
