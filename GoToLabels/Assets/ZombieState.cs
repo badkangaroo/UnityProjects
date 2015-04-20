@@ -99,7 +99,7 @@ public class ZombieState : MonoBehaviour
 		Vector3 MoveTo = (transform.position - furthestGameObject.transform.position).normalized;
 		Vector3 directionToMove = MoveAway - MoveTo;
 		transform.forward = directionToMove;
-		gameObject.rigidbody.velocity = directionToMove * Random.Range(10, 20) * 0.235f;
+		gameObject.GetComponent<Rigidbody>().velocity = directionToMove * Random.Range(10, 20) * 0.235f;
 		Debug.DrawRay(transform.position, directionToMove, Color.blue);
 		Debug.DrawLine(transform.position, closestGameObject.transform.position, Color.red);
 		Debug.DrawLine(transform.position, furthestGameObject.transform.position, Color.green);
