@@ -29,8 +29,7 @@ public class Linq : MonoBehaviour
 
 //		var divisibleByThree =
 //			(from n in numbers where (n % 3) == 0 select n).ToList();
-		var divisibleByThree =
-			(from n in numbers where (moduloThree(n)) == 0 select n).ToList();
+		var divisibleByThree = (from n in numbers where (moduloThree(n)) == 0 select n).ToList();
 
 		numbers [0] = 1;
 		numbers [3] = 1;
