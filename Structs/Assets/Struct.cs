@@ -29,7 +29,7 @@ public class Struct : MonoBehaviour
 	{
 		Vector3 size = new Vector3(box.width, box.height, box.depth);
 		gameObject.transform.localScale = size;
-		gameObject.renderer.material.color = box.color;
+		gameObject.GetComponent<Renderer>().material.color = box.color;
 	}
 	
 	// Update is called once per frame
