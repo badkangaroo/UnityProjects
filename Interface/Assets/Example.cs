@@ -8,7 +8,7 @@ public class Example : MonoBehaviour
 		Toaster T = new Toaster();
 		T.ThingName = "Talkie";
 		print(T.ThingName);
-		Zombie Z = (Zombie)gameObject.AddComponent("Zombie");
+		Zombie Z = (Zombie)gameObject.AddComponent<Zombie>();
 		Z.ThingName = "Stubbs";
 		print(Z.ThingName);
 	}
