@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-int
 public class MoreScope : MonoBehaviour
 {
 	
