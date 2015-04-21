@@ -41,6 +41,6 @@ public class Logic : MonoBehaviour
             col = Color.blue;
         }
 
-        renderer.material.color = col;
+        GetComponent<Renderer>().material.color = col;
     }
 }
