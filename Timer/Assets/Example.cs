@@ -44,7 +44,7 @@ public class Example : MonoBehaviour
 		{
 			Color rc =
 				new Color(Random.value, Random.value, Random.value, 1);
-			box.renderer.material.color = rc;
+			box.GetComponent<Renderer>().material.color = rc;
 		}
 	}
 
