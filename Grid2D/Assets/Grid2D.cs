@@ -44,14 +44,14 @@ public class Grid2D : MonoBehaviour
 			for (int _y = 0; _y < Height; _y++)
 			{
 				GameObject go = Grid [_x, _y];
-				go.renderer.material.SetColor("_Color", Color.white);
+				go.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
 			}
 		}
 		
 		if (x >= 0 && y >= 0 && x < Width && y < Height)
 		{
 			GameObject go = Grid [x, y];
-			go.renderer.material.SetColor("_Color", Color.red);
+			go.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
 		}
 	}
 }
