@@ -1,6 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../arcturus/tools/UnityPlugin/Unity5/Assets/StallRender.cs">
+    <Files>
+      <File FileName="../../arcturus/tools/UnityPlugin/Unity5/Assets/StallRender.cs" Line="18" Column="24" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
