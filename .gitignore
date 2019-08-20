@@ -22,6 +22,7 @@ local.properties
 .settings/
 .loadpath
 */Packages
+*/Logs
 # External tool builders
 .externalToolBuilders/
 
